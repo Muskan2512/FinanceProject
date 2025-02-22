@@ -1,12 +1,7 @@
 const mongoose=require("mongoose");
 
-
 const UserSchema=new mongoose.Schema({
-  firstName:{
-    type:String,
-    required:true,
-  },
-  lastName:{
+  userName:{
     type:String,
     required:true,
   },
@@ -19,7 +14,8 @@ const UserSchema=new mongoose.Schema({
     required:true,
   },
   image:String,
-  totalScore: { type: Number, default: 0 }, 
+  totalScore: { type: Number, default: 1 }, 
+  level: { type: Number, default: 1 },
 })
 
 const User=mongoose.model("User",UserSchema);

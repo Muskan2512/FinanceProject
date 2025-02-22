@@ -8,8 +8,13 @@ import { Routes, Route } from 'react-router-dom'
 import { ContextStore } from './store/ContextStore'
 // import AllEvents from './components/AllEvents'
 import AllEvents1 from './components/AllEvents1'
+import Quiz from "./components/quiz_components/Quiz"
 import Games from './components/Games'
 import GameFrame from './components/GameFrame'
+import QuizGame from "./components/QuizGame"
+import Tutorial from "./components/Tutorial"
+import PrivateRoute from "./components/privateRoute"
+import Profile from "./components/Profile"
 function App() {
 
 
@@ -27,14 +32,31 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="login" element={<Login/>}/>
         <Route path="/signup" element={<SignUp />} />
-        <Route path='/events' element={<AllEvents1/>}/>
-        <Route path="/games" element={<Games/>}/>
-        <Route path='/games/quiz' element={<></>}/>
-        <Route path='/games/puzzle' element={<></>}/>
-        <Route path="/games/hangman" element={<GameFrame/>}/>
+        {/* <Route path='/events' element={<AllEvents1/>}/> */}
+        <Route path="/games" element={<AllEvents1/>}/>
+        <Route path="/tutorial" element={<PrivateRoute>
+        <Tutorial/>
+        </PrivateRoute>}
+        />
+        <Route path='/games/quiz' element={
+          <PrivateRoute>
+        <QuizGame/>
+        </PrivateRoute>}
+
+        />
+        <Route path="/games/hangman" element={
+          <PrivateRoute>
+        <GameFrame/>
+          </PrivateRoute>        
+        }/>
+
+      <Route path="/progress" element={
+        <PrivateRoute>
+        <Profile/>
+        </PrivateRoute>
+      }/>
+
       </Routes>
-
-
       </ContextStore.Provider>
     </div>
   )

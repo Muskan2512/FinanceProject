@@ -3,14 +3,13 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { ContextStore } from '../store/ContextStore'
 import toast from 'react-hot-toast'
+import Header from "./Header"
 const SignUp = () => {
 
-  // firstName,lastName,email,password,confirmPassword
   const {setToken,setUser}=useContext(ContextStore)
   const navigate=useNavigate()
   const [signupForm,setSignUpForm]=useState({
-    firstName:"",
-    lastName:"",
+    userName:"",
     email:"",
     password:"",
     confirmPassword:"",
@@ -37,8 +36,7 @@ const SignUp = () => {
     }catch(err){
       if(err.response.data.message==="User already exist"){
         toast.error("User already registered")
-        setSignUpForm({firstName:"",
-    lastName:"",
+        setSignUpForm({userName:"",
     email:"",
     password:"",
     confirmPassword:"",})
@@ -51,33 +49,27 @@ const SignUp = () => {
 
   
   return (
-      <div className='w-11/12 bg-[black] text-white flex lg:flex-row justify-center md:gap-[10%] gap-[2rem] items-center h-[100vh] '>
+      <div className='w-11/12 pad navbar-color flex flex-col justify-start md:gap-[10%] gap-[2rem] items-center h-[100vh] '>
+      <Header/>
     <div className='lg:w-[50%] w-[60%] items-center flex flex-col  justify-center gap-1 lg:mt-0 mt-5 '>
     <p className='font-bold text-4xl'>SignUp</p>
 
     <form onSubmit={handleSubmit} className='w-[100%]  flex justify-center '>
       <div className='flex gap-2 flex-col  py-4  md:w-[90%] w-[100%]'>
-        <label htmlFor="firstName" className='text-white'>Enter firstName<sup className='text-[#f84d4dfd]'>{" "}*</sup></label>
+        <label htmlFor="userName" className='text-white'>Enter userName<sup className='text-[#f84d4dfd]'>{" "}*</sup></label>
         
     
-        <input type="text" name="firstName" id="firstName" placeholder='Enter firstName' required 
-            className='w-[100%] px-4 py-3 text-[1rem] bg-white rounded-md  text-black outline-none border-none'
-            value={signupForm.firstName}
+        <input type="text" name="userName" id="userName" placeholder='Enter userName' required 
+            className='w-[100%] px-4 py-3 text-[1rem] bg-white rounded-md  text_black outline-none border-none pad'
+            value={signupForm.userName}
             onChange={(e)=>{handleChange(e)}}
         />
-        <label htmlFor="lastName" className='text-white'>Enter lastName<sup className='text-[#f84d4dfd]'>{" "}*</sup></label>
-        
-    
-        <input type="text" name="lastName" id="lastName" placeholder='Enter lastName' required 
-            className='w-[100%] px-4 py-3 text-[1rem] bg-white rounded-md  text-black outline-none border-none'
-            value={signupForm.lastName}
-            onChange={(e)=>{handleChange(e)}}
-        />
+      
         <label htmlFor="email" className='text-white'>Enter Email Address<sup className='text-[#f84d4dfd]'>{" "}*</sup></label>
         
     
         <input type="email" name="email" id="email" placeholder='Enter Email Address' required 
-            className='w-[100%] px-4 py-3 text-[1rem] bg-white rounded-md  text-black  outline-none border-none'
+            className='w-[100%] px-4 py-3 text-[1rem] bg-white rounded-md  text_black  outline-none border-none pad'
             value={signupForm.email}
             onChange={(e)=>{handleChange(e)}}
         />
@@ -86,7 +78,7 @@ const SignUp = () => {
         <div className='w-[100%]'>
 
         <input type="password" name="password" id="password" placeholder='Enter password' required 
-             className='w-[100%] px-4 py-3 text-[1rem] bg-white rounded-md  text-black outline-none border-none'
+             className='w-[100%] px-4 py-3 text-[1rem] bg-white rounded-md  text_black outline-none border-none pad'
              value={signupForm.password}
         
              onChange={(e)=>{handleChange(e)}}
@@ -98,14 +90,14 @@ const SignUp = () => {
         <div className='w-[100%]'>
 
         <input type="password" name="confirmPassword" id="confirmPassword" placeholder='Enter confirm password' required 
-             className='w-[100%] px-4 py-3 text-[1rem] bg-white rounded-md  text-black outline-none border-none'
+             className='w-[100%] px-4 py-3 text-[1rem] bg-white rounded-md  text_black outline-none border-none pad'
              value={signupForm.confirmPassword}
         
              onChange={(e)=>{handleChange(e)}}
         />
         
         </div>
-        <button className='bg-[#E7C009] py-2 text-black w-[100%] rounded-md' >
+        <button className='bg-gray-400 py-2 text_black w-[100%] rounded-md pad' >
     {"Sign Up"}
         
     </button>

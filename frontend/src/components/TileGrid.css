@@ -1,18 +1,17 @@
-* {
+/* * {
   margin: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
-}
+} */
 
-body {
+/* body {
   background: #f4f4f4;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 20px;
   margin: 0;
-}
+} */
 
 /* Tile Grid */
 .tiles {

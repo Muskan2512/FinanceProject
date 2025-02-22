@@ -8,10 +8,10 @@ require("dotenv").config()
 exports.signup = async(req,res) => {
   try{
     // console.log("request ki body is:",req.body);
-    const {firstName,lastName,email,password,confirmPassword}=req.body;
+    const {userName,email,password,confirmPassword}=req.body;
   //  console.log(firstName,lastName,email,password,confirmPassword);
     // if any of the data is missing -error
-    if(!firstName || !lastName || !email || !password || !confirmPassword){
+    if(!userName || !email || !password || !confirmPassword){
       return res.status(403).send({
         success:false,
         message:"All Fields are compulsory"
@@ -43,11 +43,10 @@ exports.signup = async(req,res) => {
 
     // create the entry in the db
     const userData=new User({
-      firstName,
-      lastName,
+      userName,
       email,
       password:hashedPassword,
-      image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
+      image: `https://api.dicebear.com/5.x/initials/svg?seed=${userName} ${userName}`,
     })
     await userData.save();
 
@@ -88,8 +87,7 @@ exports.login=async(req,res)=>{
       const secret=process.env.JWT_SECRET
       // const token = jwt.sign(payload,secret)
       const token=jwt.sign({
-        firstName:existUser.firstName,
-        lastName:existUser.lastName,
+        userName:existUser.userName,
         email:existUser.email,
         id:existUser._id,
       },secret);

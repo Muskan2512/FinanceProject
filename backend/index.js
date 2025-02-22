@@ -6,6 +6,7 @@ const cors=require("cors")
 const app=express();
 const db=require("./config/db")
 const userRoutes=require("./routes/auth");
+const ScoreRoutes=require("./routes/User")
 const cookieParser=require("cookie-parser")
 
 require("dotenv").config();
@@ -23,6 +24,8 @@ app.use(
 	})
 )
 app.use("/api/v1/auth",userRoutes);
+app.use("/api/v1/score",ScoreRoutes);
+
 
 // listen at the Port no 
 app.listen(PORT,()=>{

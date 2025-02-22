@@ -13,9 +13,8 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-
-    background: linear-gradient(#efe5e5, rgb(230 68 239 / 66%), rgb(85 48 233 / 34%), #0000ffbf);
-
+    width:100vw;
+    /* background-color:red; */
 }
 
 .container {

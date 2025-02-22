@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 
 const tilesData = [
   { imgSrc:tutorial, title: "TUTORIAL", info: "Responsive and smooth hover effect.",url:"/tutorial" },
-  { imgSrc:quiz, title: "QUIZ", info: "Fully adaptable to screen sizes.", url:"games/quiz"},
-  { imgSrc:hangman, title: "FUN GAME", info: "Mobile-friendly layout included.", url:"games/hangman" },
-  { imgSrc:puzzle, title: "PUZZLE", info: "Clean and modern card design." ,url:"games/puzzle"},
+  { imgSrc:quiz, title: "QUIZ", info: "Fully adaptable to screen sizes.", url:"/games/quiz"},
+  { imgSrc:hangman, title: "FUN GAME", info: "Mobile-friendly layout included.", url:"/games/hangman" },
+  // { imgSrc:puzzle, title: "PUZZLE", info: "Clean and modern card design." ,url:"/games/puzzle"},
 ];
 
 const TileGrid = () => {
